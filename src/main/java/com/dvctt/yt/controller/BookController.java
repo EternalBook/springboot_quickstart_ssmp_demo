@@ -1,5 +1,6 @@
 package com.dvctt.yt.controller;
 
+import com.dvctt.yt.controller.utils.R;
 import com.dvctt.yt.domain.Book;
 import com.dvctt.yt.service.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,23 +16,27 @@ public class BookController {
     private IBookService bookService;
 
     @PostMapping
-    public Boolean save(@RequestBody Book book) {
-        return bookService.saveBook(book);
+    public R save(@RequestBody Book book) {
+        Boolean flag = bookService.saveBook(book);
+        return new R(flag);
     }
 
-    @PostMapping
-    public Boolean update(@RequestBody Book book) {
-        return bookService.modify(book);
+    @PutMapping
+    public R update(@RequestBody Book book) {
+        Boolean flag = bookService.modify(book);
+        return new R(flag);
     }
 
     @DeleteMapping("{id}")
-    public Boolean delete(@PathVariable Integer id) {
-        return bookService.delete(id);
+    public R delete(@PathVariable Integer id) {
+        Boolean flag = bookService.delete(id);
+        return new R(flag);
     }
 
 
     @GetMapping("{id}")
-    public Book getById(@PathVariable Integer id) {
-        return bookService.getById(id);
+    public R getById(@PathVariable Integer id) {
+        Book book = bookService.getById(id);
+        return new R(true,book);
     }
 }
