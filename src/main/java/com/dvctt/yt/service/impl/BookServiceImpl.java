@@ -10,6 +10,9 @@ import com.dvctt.yt.service.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author etern
+ */
 @Service
 public class BookServiceImpl extends ServiceImpl<BookDao, Book>  implements IBookService {
     @Autowired

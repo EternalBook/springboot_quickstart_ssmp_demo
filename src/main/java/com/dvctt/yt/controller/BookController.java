@@ -19,7 +19,7 @@ public class BookController {
         return bookService.saveBook(book);
     }
 
-    @PostMapping
+    @PutMapping
     public Boolean update(@RequestBody Book book) {
         return bookService.modify(book);
     }
