@@ -2,9 +2,6 @@ package com.dvctt.yt.controller.utils;
 
 import lombok.Data;
 
-/**
- * @author etern
- */
 @Data
 public class R {
     private Boolean flag;
